@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Nantasket Beach Salt Water Club</title>
+
+  <style>
+
+    /* =========================
+       GLOBAL
+    ========================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      background-color: #f4f7fa;
+
+      overflow-x: hidden;
+
+      color: #1a1a1a;
+
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* =========================
+       HERO SECTION
+    ========================== */
+
+    .hero {
+
+  position: relative;
+
+  height: 100vh;
+
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,.45),
+      rgba(0,0,0,.45)
+    ),
+    url('images/banner.png');
+
+  background-size: cover;
+
+  background-position: center top;
+
+  background-repeat: no-repeat;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  color: white;
+
+}
+
+    /* =========================
+       FLOATING NAVIGATION
+    ========================== */
+
+    .floating-nav {
+
+      position: absolute;
+
+      top: 35px;
+      right: 60px;
+
+      z-index: 1000;
+
+      display: flex;
+
+      gap: 35px;
+
+    }
+
+    .floating-nav a {
+
+      color: white;
+
+      font-size: 15px;
+
+      font-weight: 700;
+
+      letter-spacing: 1px;
+
+      text-transform: uppercase;
+
+      transition: .3s ease;
+
+    }
+
+    .floating-nav a:hover {
+
+      color: #9fd0ff;
+
+    }
+
+    /* =========================
+       HERO CONTENT
+    ========================== */
+
+    .hero-content {
+
+      max-width: 900px;
+
+      padding: 20px;
+
+    }
+
+    .hero h1 {
+
+      font-size: 2.5rem;
+
+      font-weight: 800;
+
+      margin-bottom: 20px;
+
+      text-shadow: 2px 2px 20px rgba(0,0,0,.5);
+
+    }
+
+    .hero-subtitle {
+
+      font-size: 1.3rem;
+
+      letter-spacing: 1px;
+
+      margin-bottom: 20px;
+
+    }
+
+    .hero-text {
+
+      font-size: 1.1rem;
+
+      line-height: 1.8;
+
+      margin-bottom: 40px;
+
+    }
+
+    /* =========================
+       BUTTONS
+    ========================== */
+
+    .btn {
+
+      display: inline-block;
+
+      background-color: #0d4ea6;
+
+      color: white;
+
+      padding: 14px 30px;
+
+      border-radius: 50px;
+
+      font-weight: 700;
+
+      margin: 8px;
+
+      transition: .3s ease;
+
+    }
+
+    .btn:hover {
+
+      background-color: #1565cc;
+
+      transform: translateY(-3px);
+
+    }
+
+    /* =========================
+       SECTIONS
+    ========================== */
+
+    .section {
+
+      padding: 90px 10%;
+
+    }
+
+    .section-title {
+
+      font-size: 2.5rem;
+
+      color: #0b2d52;
+
+      margin-bottom: 25px;
+
+      font-weight: 800;
+
+    }
+
+    .two-column {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 40px;
+
+    }
+
+    .card {
+
+      background: white;
+
+      padding: 45px;
+
+      border-radius: 20px;
+
+      box-shadow: 0 10px 25px rgba(0,0,0,.08);
+
+    }
+
+    .card p {
+
+      line-height: 1.8;
+
+      margin-bottom: 18px;
+
+    }
+
+    /* =========================
+       FEATURE CARDS
+    ========================== */
+
+    .feature-grid {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 40px;
+
+    }
+
+    .feature-card {
+
+      background: white;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      box-shadow: 0 10px 25px rgba(0,0,0,.08);
+
+      transition: .3s ease;
+
+    }
+
+    .feature-card:hover {
+
+      transform: translateY(-8px);
+
+    }
+
+    .feature-card img {
+
+      width: 100%;
+
+      height: 320px;
+
+      object-fit: cover;
+
+    }
+
+    .feature-content {
+
+      padding: 35px;
+
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact-box {
+
+      background: white;
+
+      padding: 50px;
+
+      border-radius: 20px;
+
+      box-shadow: 0 10px 25px rgba(0,0,0,.08);
+
+      max-width: 800px;
+
+      margin: auto;
+
+    }
+
+    .contact-box input,
+    .contact-box textarea {
+
+      width: 100%;
+
+      padding: 15px;
+
+      margin-top: 8px;
+      margin-bottom: 20px;
+
+      border-radius: 10px;
+
+      border: 1px solid #ccc;
+
+      font-size: 16px;
+
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+
+      background-color: #081b33;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 35px 20px;
+
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 900px) {
+
+      .floating-nav {
+
+        right: 20px;
+
+        gap: 18px;
+
+        flex-wrap: wrap;
+
+      }
+
+      .hero h1 {
+
+        font-size: 2.8rem;
+
+      }
+
+      .hero-subtitle {
+
+        font-size: 1rem;
+
+      }
+
+      .hero-text {
+
+        font-size: 1rem;
+
+      }
+
+      .two-column,
+      .feature-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .section {
+
+        padding: 70px 25px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero" id="home">
+
+    <!-- FLOATING NAV -->
+
+    <div class="floating-nav">
+
+      <a href="#home">Home</a>
+
+      <a href="#about">About</a>
+
+      <a href="gallery.html">Gallery</a>
+
+      <a href="events.html">Events</a>
+
+      <a href="#contact">Contact</a>
+
+    </div>
+
+    <!-- HERO CONTENT -->
+
+    <div class="hero-content">
+
+      <h1>
+        Nantasket Beach Salt Water Club
+      </h1>
+
+      <p class="hero-subtitle">
+        Hull, Massachusetts • Established 1951
+      </p>
+
+      <p class="hero-text">
+
+        Celebrating 75 years of waterfront tradition,
+        boating culture, community events,
+        and South Shore heritage along historic
+        Nantasket Beach.
+
+      </p>
+
+      <a href="gallery.html" class="btn">
+        View Gallery
+      </a>
+
+      <a href="events.html" class="btn">
+        Events Calendar
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       ABOUT
+  ========================== -->
+
+  <section class="section" id="about">
+
+    <div class="two-column">
+
+      <div class="card">
+
+        <h2 class="section-title">
+          A Hull Tradition Since 1951
+        </h2>
+
+        <p>
+
+          Located near historic Nantasket Beach,
+          the Nantasket Beach Salt Water Club has
+          served generations of Hull residents,
+          beachgoers, boaters, and South Shore families.
+
+        </p>
+
+        <p>
+
+          The club continues to celebrate the unique
+          maritime traditions and waterfront culture
+          that define the Hull community.
+
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <h2 class="section-title">
+          Celebrating 75 Years
+        </h2>
+
+        <p>
+
+          From waterfront gatherings to local events,
+          NBSWC continues to honor its members,
+          traditions, and South Shore heritage.
+
+        </p>
+
+        <p>
+
+          The club remains an important part of the
+          Nantasket Beach and Hull waterfront community.
+
+        </p>
+
+        <a href="events.html" class="btn">
+          Anniversary Events
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       FEATURES
+  ========================== -->
+
+  <section class="section">
+
+    <div class="feature-grid">
+
+      <!-- GALLERY -->
+
+      <div class="feature-card">
+
+        <img src="images/banner.png"
+             alt="Gallery">
+
+        <div class="feature-content">
+
+          <h2 class="section-title">
+            Photo Gallery
+          </h2>
+
+          <p>
+
+            Explore club photos,
+            Nantasket Beach scenes,
+            waterfront traditions,
+            and memorable moments
+            from the Hull community.
+
+          </p>
+
+          <a href="gallery.html" class="btn">
+            Open Gallery
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- EVENTS -->
+
+      <div class="feature-card">
+
+        <img src="events/event-banner.jpg"
+             alt="Events">
+
+        <div class="feature-content">
+
+          <h2 class="section-title">
+            Club Events
+          </h2>
+
+          <p>
+
+            Stay updated on anniversary celebrations,
+            community gatherings, seasonal activities,
+            and club events throughout the year.
+
+          </p>
+
+          <a href="events.html" class="btn">
+            View Events
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       CONTACT
+  ========================== -->
+
+  <section class="section"
+           id="contact">
+
+    <div class="contact-box">
+
+      <h2 class="section-title"
+          style="text-align:center;">
+
+        Contact NBSWC
+
+      </h2>
+
+      <form>
+
+        <label>Your Name</label>
+
+        <input type="text">
+
+        <label>Email Address</label>
+
+        <input type="email">
+
+        <label>Message</label>
+
+        <textarea rows="6"></textarea>
+
+        <button type="submit"
+                class="btn">
+
+          Send Message
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <p>
+      © 2026 Nantasket Beach Salt Water Club
+    </p>
+
+    <p>
+      Hull, Massachusetts
+    </p>
+
+  </footer>
+
+</body>
+
+</html>
